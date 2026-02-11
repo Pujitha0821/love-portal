@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Relationship Intelligence Portal</title>
+
+  <style>
+    body {
+      font-family: "Times New Roman", serif;
+      background:#0B1F3A;
+      margin:0;
+      display:flex;
+      min-height:100vh;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .card {
+      width:min(420px, 92vw);
+      background:#fff;
+      border-radius:18px;
+      padding:26px;
+      box-shadow:0 10px 30px rgba(0,0,0,.25);
+    }
+
+    h1 {
+      margin:0 0 6px 0;
+      font-size:22px;
+      color:#0B1F3A;
+    }
+
+    .sub {
+      margin:0 0 18px 0;
+      color:#555;
+      font-size:14px;
+    }
+
+    label {
+      display:block;
+      font-size:13px;
+      color:#333;
+      margin:12px 0 6px;
+    }
+
+    input {
+      width:100%;
+      padding:12px;
+      border:1px solid #ddd;
+      border-radius:10px;
+      font-size:15px;
+    }
+
+    button {
+      width:100%;
+      margin-top:18px;
+      padding:12px;
+      border:0;
+      border-radius:10px;
+      background:#E63946;
+      color:#fff;
+      font-weight:700;
+      font-size:15px;
+      cursor:pointer;
+    }
+
+    button:hover { opacity:.95; }
+
+    .hint {
+      margin-top:12px;
+      font-size:13px;
+      color:#666;
+    }
+
+    .err {
+      margin-top:12px;
+      font-size:14px;
+      color:#E63946;
+      display:none;
+    }
+
+    .footer {
+      margin-top:18px;
+      font-size:12px;
+      color:#888;
+      text-align:center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <h1>Relationship Intelligence Portal</h1>
+    <p class="sub">Restricted access • Authorized user only</p>
+
+    <label>User Name</label>
+    <input id="email" type="text" placeholder="Authorized User" />
+
+    <label>Access Code</label>
+    <input id="pw" type="password" placeholder="Enter access code" />
+
+    <button onclick="login()">Sign in</button>
+
+    <div class="hint">Access code hint: the year we met ❤️</div>
+    <div id="err" class="err">Access denied. Try again.</div>
+
+    <div class="footer">
+      This portal was built with love, not security 😄
+    </div>
+  </div>
+
+  <script>
+    // CHANGE THESE TWO THINGS
+    const correctPassword = "2021"; 
+    const redirectTo = "PASTE_YOUR_POWER_BI_LINK_HERE";
+
+    function login(){
+      const pw = document.getElementById("pw").value.trim();
+      const err = document.getElementById("err");
+
+      if(pw === correctPassword){
+        err.style.display = "none";
+        setTimeout(() => window.location.href = redirectTo, 600);
+      } else {
+        err.style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>
