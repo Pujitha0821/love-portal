@@ -1,24 +1,25 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset="utf-8" />
-  <title>Access Verification</title>
+<meta charset="utf-8"/>
+<title>Access Verification</title>
 </head>
 
-<body style="font-family:'Times New Roman',serif;text-align:center;margin-top:120px;">
+<body style="font-family:'Times New Roman',serif;text-align:center;margin-top:120px">
 
 <script>
-  const powerBI = "https://app.powerbi.com/links/sJVUuEtxtL?ctid=251dbd03-40e1-4bc0-bc4f-8bd635226c2b&pbi_source=linkShare&bookmarkGuid=be4a138b-eb8e-41ee-bfab-56884e0e4c33";
-  const token = sessionStorage.getItem("loveAccess");
+const powerBI = "https://app.powerbi.com/links/sJVUuEtxtL?ctid=251dbd03-40e1-4bc0-bc4f-8bd635226c2b&pbi_source=linkShare&bookmarkGuid=be4a138b-eb8e-41ee-bfab-56884e0e4c33";
+const token = sessionStorage.getItem("loveAccess");
 
-  if (token === "granted") {
-      window.location.href = powerBI;
-  } else {
-      document.body.innerHTML =
-      "<h1>Unauthorized Access ❌</h1>" +
-      "<p>Access denied. Please return to the portal and try again.</p>" +
-      "<br><a href='index.html'>Go back to Portal</a>";
-  }
+if(token === "granted"){
+   window.location.href = powerBI;
+}
+else{
+   document.body.innerHTML =
+   "<h1>Unauthorized Access ❌</h1>" +
+   "<p>Access denied. Please return to portal and try again.</p>" +
+   "<br><a href='index.html'>Return to Portal</a>";
+}
 </script>
 
 </body>
