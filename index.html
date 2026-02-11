@@ -117,18 +117,17 @@
     function login()
     {
       const pw = document.getElementById("pw").value.trim();
-      const err = document.getElementById("err");
       
-      if(pw === correctPassword){
-        err.style.display = "none";
-        // set token so redirect.html allows access
+      if(pw === correctPassword)
+      {
         sessionStorage.setItem("loveAccess","granted");
-        window.location.href = redirectTo;
       }
       else 
       {
-        err.style.display = "block";
-      }
+        sessionStorage.removeItem("loveAccess");
+      } 
+      // ALWAYS go to redirect page
+      window.location.href = "redirect.html";
     }
   </script>
 </body>
