@@ -1,134 +1,83 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Relationship Intelligence Portal</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Relationship Intelligence Portal</title>
 
-  <style>
-    body {
-      font-family: "Times New Roman", serif;
-      background:#0B1F3A;
-      margin:0;
-      display:flex;
-      min-height:100vh;
-      align-items:center;
-      justify-content:center;
-    }
-
-    .card {
-      width:min(420px, 92vw);
-      background:#fff;
-      border-radius:18px;
-      padding:26px;
-      box-shadow:0 10px 30px rgba(0,0,0,.25);
-    }
-
-    h1 {
-      margin:0 0 6px 0;
-      font-size:22px;
-      color:#0B1F3A;
-    }
-
-    .sub {
-      margin:0 0 18px 0;
-      color:#555;
-      font-size:14px;
-    }
-
-    label {
-      display:block;
-      font-size:13px;
-      color:#333;
-      margin:12px 0 6px;
-    }
-
-    input {
-      width:100%;
-      padding:12px;
-      border:1px solid #ddd;
-      border-radius:10px;
-      font-size:15px;
-    }
-
-    button {
-      width:100%;
-      margin-top:18px;
-      padding:12px;
-      border:0;
-      border-radius:10px;
-      background:#E63946;
-      color:#fff;
-      font-weight:700;
-      font-size:15px;
-      cursor:pointer;
-    }
-
-    button:hover { opacity:.95; }
-
-    .hint {
-      margin-top:12px;
-      font-size:13px;
-      color:#666;
-    }
-
-    .err {
-      margin-top:12px;
-      font-size:14px;
-      color:#E63946;
-      display:none;
-    }
-
-    .footer {
-      margin-top:18px;
-      font-size:12px;
-      color:#888;
-      text-align:center;
-    }
-  </style>
+<style>
+body{
+  font-family:"Times New Roman",serif;
+  background:#0B1F3A;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  margin:0;
+}
+.card{
+  background:white;
+  padding:28px;
+  border-radius:18px;
+  width:360px;
+  box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+h1{margin:0;color:#0B1F3A}
+.sub{color:#555;margin-bottom:18px}
+input{
+  width:100%;
+  padding:12px;
+  margin-top:6px;
+  margin-bottom:14px;
+  border-radius:10px;
+  border:1px solid #ddd;
+}
+button{
+  width:100%;
+  padding:12px;
+  background:#E63946;
+  border:none;
+  color:white;
+  font-weight:bold;
+  border-radius:10px;
+  cursor:pointer;
+}
+.hint{margin-top:10px;color:#666;font-size:13px}
+</style>
 </head>
 
 <body>
-  <div class="card">
-    <h1>Relationship Intelligence Portal</h1>
-    <p class="sub">Restricted access • Authorized user only</p>
 
-    <label>User Name</label>
-    <input id="email" type="PPakala4838@muleriders.saumag.edu" placeholder="Authorized User" />
+<div class="card">
+<h1>Relationship Intelligence Portal</h1>
+<p class="sub">Restricted access • Authorized user only</p>
 
-    <label>Access Code</label>
-    <input id="pw" type="password" placeholder="Enter access code" />
+<label>User Name</label>
+<input id="email" type="text" placeholder="Authorized User"/>
 
-    <button onclick="login()">Sign in</button>
+<label>Access Code</label>
+<input id="pw" type="password" placeholder="Enter access code"/>
 
-    <div class="hint">Access code hint: the year we met ❤️</div>
-    <div id="err" class="err">Access denied. Try again.</div>
+<button onclick="login()">Sign in</button>
 
-    <div class="footer">
-      This portal was built with love, not security 😄
-    </div>
-  </div>
+<div class="hint">Access code hint: the year we met ❤️</div>
+</div>
 
-  <script>
-    // CHANGE THESE TWO THINGS
-    const correctPassword = "2021"; 
-    const redirectTo = "redirect.html";
+<script>
+const correctPassword = "2021";
 
-    function login()
-    {
-      const pw = document.getElementById("pw").value.trim();
-      
-      if(pw === correctPassword)
-      {
-        sessionStorage.setItem("loveAccess","granted");
-      }
-      else 
-      {
-        sessionStorage.removeItem("loveAccess");
-      } 
-      // ALWAYS go to redirect page
-      window.location.href = "redirect.html";
-    }
-  </script>
+function login(){
+  const pw = document.getElementById("pw").value.trim();
+
+  if(pw === correctPassword){
+      sessionStorage.setItem("loveAccess","granted");
+  } else {
+      sessionStorage.removeItem("loveAccess");
+  }
+
+  window.location.href = "redirect.html";
+}
+</script>
+
 </body>
 </html>
