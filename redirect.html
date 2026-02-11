@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Verifying Access...</title>
+</head>
+<body style="font-family:'Times New Roman',serif;text-align:center;margin-top:120px;">
+  <h2>Verifying Access…</h2>
+
+  <script>
+    const powerBI = "https://app.powerbi.com/links/sJVUuEtxtL?ctid=251dbd03-40e1-4bc0-bc4f-8bd635226c2b&pbi_source=linkShare&bookmarkGuid=be4a138b-eb8e-41ee-bfab-56884e0e4c33";
+
+    // Check if user came through your portal login
+    const token = sessionStorage.getItem("loveAccess");
+
+    if (token === "granted") {
+      window.location.href = powerBI;
+    } else {
+      document.body.innerHTML =
+        "<h2>Unauthorized Access ❌</h2><p>Please open the portal link first.</p>";
+    }
+  </script>
+</body>
+</html>
