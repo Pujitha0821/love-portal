@@ -112,16 +112,21 @@
   <script>
     // CHANGE THESE TWO THINGS
     const correctPassword = "2021"; 
-    const redirectTo = "https://app.powerbi.com/links/xZDsl4gX-C?ctid=251dbd03-40e1-4bc0-bc4f-8bd635226c2b&pbi_source=linkShare";
+    const redirectTo = "redirect.html";
 
-    function login(){
+    function login()
+    {
       const pw = document.getElementById("pw").value.trim();
       const err = document.getElementById("err");
-
+      
       if(pw === correctPassword){
         err.style.display = "none";
-        setTimeout(() => window.location.href = redirectTo, 600);
-      } else {
+        // set token so redirect.html allows access
+        sessionStorage.setItem("loveAccess","granted");
+        window.location.href = redirectTo;
+      }
+      else 
+      {
         err.style.display = "block";
       }
     }
