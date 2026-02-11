@@ -2,23 +2,24 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>Verifying Access...</title>
+  <title>Access Verification</title>
 </head>
+
 <body style="font-family:'Times New Roman',serif;text-align:center;margin-top:120px;">
-  <h2>Verifying Access…</h2>
 
-  <script>
-    const powerBI = "https://app.powerbi.com/links/sJVUuEtxtL?ctid=251dbd03-40e1-4bc0-bc4f-8bd635226c2b&pbi_source=linkShare&bookmarkGuid=be4a138b-eb8e-41ee-bfab-56884e0e4c33";
+<script>
+  const powerBI = "https://app.powerbi.com/links/sJVUuEtxtL?ctid=251dbd03-40e1-4bc0-bc4f-8bd635226c2b&pbi_source=linkShare&bookmarkGuid=be4a138b-eb8e-41ee-bfab-56884e0e4c33";
+  const token = sessionStorage.getItem("loveAccess");
 
-    // Check if user came through your portal login
-    const token = sessionStorage.getItem("loveAccess");
-
-    if (token === "granted") {
+  if (token === "granted") {
       window.location.href = powerBI;
-    } else {
+  } else {
       document.body.innerHTML =
-        "<h2>Unauthorized Access ❌</h2><p>Please open the portal link first.</p>";
-    }
-  </script>
+      "<h1>Unauthorized Access ❌</h1>" +
+      "<p>Access denied. Please return to the portal and try again.</p>" +
+      "<br><a href='index.html'>Go back to Portal</a>";
+  }
+</script>
+
 </body>
 </html>
